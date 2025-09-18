@@ -1,4 +1,4 @@
-# Appla-X Gate SDK for PHP
+# Appla-X Gate SDK for PHP / LARAVEL 11+
 
 [![Latest Version](https://img.shields.io/packagist/v/applax-dev/gate-sdk.svg)](https://packagist.org/packages/applax-dev/gate-sdk)
 [![PHP Version](https://img.shields.io/packagist/php-v/applax-dev/gate-sdk.svg)](https://packagist.org/packages/applax-dev/gate-sdk)
