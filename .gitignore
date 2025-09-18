@@ -1,0 +1,76 @@
+# Dependencies
+/vendor/
+composer.lock
+
+# IDE files
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Logs
+*.log
+logs/
+applax-sdk.log
+
+# Coverage and test reports
+/coverage/
+coverage.xml
+coverage.html
+phpunit.xml
+.phpunit.result.cache
+
+# Cache directories
+cache/
+tmp/
+temp/
+
+# Environment files
+.env
+.env.local
+.env.production
+.env.test
+
+# Build artifacts
+build/
+dist/
+
+# Documentation build
+docs/build/
+
+# PHPStan
+phpstan.neon
+.phpstan.cache
+
+# Psalm
+psalm.xml
+.psalm.cache
+
+# PHAR files
+*.phar
+
+# Local configuration files
+config.local.php
+settings.local.php
+
+# Backup files
+*.bak
+*.backup
+
+# Runtime files
+*.pid
+
+# Security
+secrets.json
+keys/
+certs/
