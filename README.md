@@ -362,7 +362,7 @@ composer quality
 - [Configuration](docs/configuration.md)
 - [Payment Methods](docs/payment-methods.md)
 - [Webhooks](docs/webhooks.md)
-- [API Reference](https://docs.appla-x.com/)
+- [API Reference](https://gate.appla-x.com/api-docs/)
 
 ## 🤝 Support
 
