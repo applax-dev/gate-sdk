@@ -5,7 +5,7 @@
 [![License](https://img.shields.io/packagist/l/applax-dev/gate-sdk.svg)](https://packagist.org/packages/applax-dev/gate-sdk)
 [![Total Downloads](https://img.shields.io/packagist/dt/applax-dev/gate-sdk.svg)](https://packagist.org/packages/applax-dev/gate-sdk)
 
-The official PHP SDK for Appla-X Gate API v0.6, providing secure payment processing, order management, and merchant services.
+The official PHP SDK for Appla-X Gate API v1.0, providing secure payment processing, order management, and merchant services.
 
 ## ✨ Features
 
