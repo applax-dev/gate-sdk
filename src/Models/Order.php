@@ -71,7 +71,7 @@ class Order extends BaseModel
      */
     public function getAmount(): float
     {
-        return (float) $this->get('amount');
+        return (float) ($this->get('amount') ?? $this->get('total'));
     }
 
     /**
@@ -420,7 +420,8 @@ class Order extends BaseModel
             throw new InvalidArgumentException('Order currency is required');
         }
 
-        if ($this->get('amount') === null || $this->get('amount') < 0) {
+        $amount = $this->get('amount') ?? $this->get('total');
+        if ($amount === null || $amount < 0) {
             throw new InvalidArgumentException('Order amount must be a positive number');
         }
     }

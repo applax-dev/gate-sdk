@@ -12,7 +12,7 @@ The official PHP SDK for Appla-X Gate API v1.0, providing secure payment process
 - 🔒 **Enterprise Security** - Secure authentication, input validation, SSL/TLS enforcement
 - 🚀 **Production Ready** - Comprehensive error handling, retry logic, logging support
 - 📦 **PSR Compatible** - PSR-3 logging, PSR-18 HTTP client support
-- 🎯 **Type Safe** - Full PHP 7.4+ type declarations with rich IDE support
+- 🎯 **Type Safe** - Full PHP 8.0+ type declarations with rich IDE support
 - 🔄 **Retry Logic** - Exponential backoff for failed requests
 - 📊 **Rich Models** - Structured data objects for all API responses
 - 🎛️ **Configurable** - Flexible configuration with environment support
@@ -20,7 +20,7 @@ The official PHP SDK for Appla-X Gate API v1.0, providing secure payment process
 
 ## 🔧 Requirements
 
-- PHP 7.4 or higher
+- PHP 8.0 or higher
 - Guzzle HTTP Client 7.0+
 - Valid Appla-X Gate API credentials
 
