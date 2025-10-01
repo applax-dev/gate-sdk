@@ -9,6 +9,7 @@ The official PHP SDK for Appla-X Gate API v1.0, providing secure payment process
 
 ## ✨ Features
 
+- ⭐ **NEW: Raw API Access** - Direct access to ALL endpoints (Brands, Charges, Taxes, Subscriptions)
 - 🔒 **Enterprise Security** - Secure authentication, input validation, SSL/TLS enforcement
 - 🚀 **Production Ready** - Comprehensive error handling, retry logic, logging support
 - 📦 **PSR Compatible** - PSR-3 logging, PSR-18 HTTP client support
@@ -102,6 +103,38 @@ try {
 }
 ```
 
+### Access Any API Endpoint (NEW!)
+
+```php
+// Create a brand
+$brand = $sdk->rawPost('/brands/', [
+    'name' => 'My Brand',
+    'description' => 'Brand description'
+]);
+
+// Create a subscription
+$subscription = $sdk->rawPost('/subscriptions/', [
+    'client' => ['email' => 'customer@example.com'],
+    'amount' => 29.99,
+    'currency' => 'EUR',
+    'interval' => 'monthly'
+]);
+
+// Manage taxes
+$tax = $sdk->rawPost('/taxes/', [
+    'name' => 'VAT',
+    'rate' => 21.0,
+    'country' => 'LV'
+]);
+
+// Create charges
+$charge = $sdk->rawPost('/charges/', [
+    'amount' => 100.00,
+    'currency' => 'EUR',
+    'description' => 'Service charge'
+]);
+```
+
 ### Process Card Payment
 
 ```php
@@ -122,6 +155,23 @@ if ($paymentResult['status'] === 'success') {
 ```
 
 ## 🎯 API Coverage
+
+### Raw API Access (NEW!)
+
+Access **any** Appla-X Gate API endpoint, including Brands, Charges, Taxes, and Subscriptions:
+
+```php
+// Use raw methods for full API access
+$brand = $sdk->rawPost('/brands/', ['name' => 'My Brand']);
+$subscription = $sdk->rawGet('/subscriptions/', ['status' => 'active']);
+$tax = $sdk->rawPatch('/taxes/{id}/', ['rate' => 21.0]);
+$charge = $sdk->rawDelete('/charges/{id}/');
+
+// Or use the universal raw() method
+$result = $sdk->raw('POST', '/any-endpoint/', $payload);
+```
+
+[📖 Full Raw API Documentation](docs/raw-api-access.md)
 
 ### Orders Management
 ```php
@@ -172,6 +222,31 @@ $products = $sdk->getProducts(['filter_title' => 'Premium']);
 $client = $sdk->createClient($clientData);
 $clientCards = $sdk->getClientCards($clientId);
 ```
+
+### Brands, Subscriptions, Taxes & Charges (NEW!)
+```php
+// Brands
+$brand = $sdk->rawPost('/brands/', ['name' => 'My Brand']);
+$brands = $sdk->rawGet('/brands/', ['limit' => 20]);
+$brand = $sdk->rawPatch('/brands/{id}/', ['name' => 'Updated']);
+$sdk->rawDelete('/brands/{id}/');
+
+// Subscriptions
+$subscription = $sdk->rawPost('/subscriptions/', $subscriptionData);
+$subscriptions = $sdk->rawGet('/subscriptions/', ['status' => 'active']);
+$sdk->rawPost('/subscriptions/{id}/cancel/', []);
+
+// Taxes
+$tax = $sdk->rawPost('/taxes/', ['name' => 'VAT', 'rate' => 21.0]);
+$taxes = $sdk->rawGet('/taxes/', ['country' => 'LV']);
+
+// Charges
+$charge = $sdk->rawPost('/charges/', $chargeData);
+$sdk->rawPost('/charges/{id}/capture/', []);
+$sdk->rawPost('/charges/{id}/refund/', ['amount' => 50.00]);
+```
+
+[📖 Complete Raw API Documentation](docs/raw-api-access.md)
 
 ## 📊 Rich Data Models
 
@@ -360,6 +435,7 @@ composer quality
 
 - [Installation Guide](docs/installation.md)
 - [Configuration](docs/configuration.md)
+- [Raw API Access](docs/raw-api-access.md) ⭐ NEW
 - [Payment Methods](docs/payment-methods.md)
 - [Webhooks](docs/webhooks.md)
 - [API Reference](https://gate.appla-x.com/api-docs/)

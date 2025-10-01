@@ -8,6 +8,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- **Raw API Access Methods** - Universal methods to access any API endpoint:
+  - `raw()` - Main method for any HTTP method and endpoint
+  - `rawGet()` - Convenience method for GET requests
+  - `rawPost()` - Convenience method for POST requests (create)
+  - `rawPut()` - Convenience method for PUT requests (full update)
+  - `rawPatch()` - Convenience method for PATCH requests (partial update)
+  - `rawDelete()` - Convenience method for DELETE requests
+- **Brands Management** - Access via raw methods (`/brands/` endpoint)
+- **Subscriptions Management** - Access via raw methods (`/subscriptions/` endpoint)
+- **Taxes Management** - Access via raw methods (`/taxes/` endpoint)
+- **Charges Management** - Access via raw methods (`/charges/` endpoint)
+- **Documentation**: New comprehensive guide `docs/raw-api-access.md`
+- **Examples**: New example file `examples/raw-api-usage.php` with 400+ lines of usage examples
 - Initial release preparation
 - Complete test suite
 - CI/CD pipeline setup

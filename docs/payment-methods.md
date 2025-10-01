@@ -2,6 +2,15 @@
 
 This guide covers all payment methods supported by the Appla-X Gate SDK and how to implement them.
 
+## Quick Links
+
+- [Installation Guide](installation.md)
+- [Configuration](configuration.md)
+- [Raw API Access](raw-api-access.md) ⭐ NEW - Access Brands, Charges, Taxes, Subscriptions
+- [Webhooks](webhooks.md)
+
+---
+
 ## Overview
 
 The Appla-X Gate API supports multiple payment methods:

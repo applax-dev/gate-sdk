@@ -537,6 +537,171 @@ class GateSDK
         return $this->makeRequest('DELETE', "/webhooks/{$webhookId}/");
     }
 
+    // ===== RAW API ACCESS METHODS =====
+
+    /**
+     * Make a raw API request to any endpoint
+     *
+     * This method provides direct access to the Appla-X Gate API, allowing you to call
+     * any endpoint including those not yet implemented as dedicated methods (Brands, Charges,
+     * Taxes, Subscriptions, etc.)
+     *
+     * @param string $method HTTP method (GET, POST, PUT, PATCH, DELETE)
+     * @param string $endpoint API endpoint path (e.g., '/brands/', '/subscriptions/{id}/')
+     * @param array|null $payload Request payload/body data
+     * @param array $queryParams Optional query parameters for GET requests
+     * @return array API response data
+     * @throws GateException When the API request fails
+     * @throws ValidationException When input validation fails (400)
+     * @throws AuthenticationException When authentication fails (401, 403)
+     * @throws NotFoundException When resource is not found (404)
+     * @throws RateLimitException When rate limit is exceeded (429)
+     * @throws ServerException When server error occurs (5xx)
+     * @throws NetworkException When network connectivity fails
+     *
+     * @example
+     * // Create a brand
+     * $brand = $sdk->raw('POST', '/brands/', [
+     *     'name' => 'My Brand',
+     *     'description' => 'Brand description'
+     * ]);
+     *
+     * @example
+     * // Get subscriptions with filters
+     * $subscriptions = $sdk->raw('GET', '/subscriptions/', null, [
+     *     'status' => 'active',
+     *     'limit' => 10
+     * ]);
+     *
+     * @example
+     * // Update a tax
+     * $tax = $sdk->raw('PATCH', '/taxes/{tax-id}/', [
+     *     'rate' => 21.0
+     * ]);
+     */
+    public function raw(string $method, string $endpoint, ?array $payload = null, array $queryParams = []): array
+    {
+        // Validate HTTP method
+        $allowedMethods = ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'HEAD', 'OPTIONS'];
+        $method = strtoupper($method);
+
+        if (!in_array($method, $allowedMethods)) {
+            throw new ValidationException("Invalid HTTP method: {$method}. Allowed: " . implode(', ', $allowedMethods));
+        }
+
+        // Validate endpoint format
+        if (empty($endpoint)) {
+            throw new ValidationException('API endpoint cannot be empty');
+        }
+
+        // Ensure endpoint starts with /
+        if ($endpoint[0] !== '/') {
+            $endpoint = '/' . $endpoint;
+        }
+
+        // Log raw API call if debug mode is enabled
+        if ($this->debugMode) {
+            $this->logger->info('Raw API Call', [
+                'method' => $method,
+                'endpoint' => $endpoint,
+                'has_payload' => $payload !== null,
+                'query_params' => $queryParams,
+            ]);
+        }
+
+        // Make the request using existing internal method
+        return $this->makeRequest($method, $endpoint, $payload, $queryParams);
+    }
+
+    /**
+     * Make a raw GET request
+     *
+     * Convenience method for GET requests
+     *
+     * @param string $endpoint API endpoint path
+     * @param array $queryParams Optional query parameters
+     * @return array API response data
+     * @throws GateException
+     *
+     * @example
+     * $brands = $sdk->rawGet('/brands/', ['limit' => 20]);
+     */
+    public function rawGet(string $endpoint, array $queryParams = []): array
+    {
+        return $this->raw('GET', $endpoint, null, $queryParams);
+    }
+
+    /**
+     * Make a raw POST request
+     *
+     * Convenience method for POST requests (create resources)
+     *
+     * @param string $endpoint API endpoint path
+     * @param array $payload Request payload data
+     * @return array API response data
+     * @throws GateException
+     *
+     * @example
+     * $brand = $sdk->rawPost('/brands/', ['name' => 'My Brand']);
+     */
+    public function rawPost(string $endpoint, array $payload): array
+    {
+        return $this->raw('POST', $endpoint, $payload);
+    }
+
+    /**
+     * Make a raw PUT request
+     *
+     * Convenience method for PUT requests (full update)
+     *
+     * @param string $endpoint API endpoint path
+     * @param array $payload Request payload data
+     * @return array API response data
+     * @throws GateException
+     *
+     * @example
+     * $brand = $sdk->rawPut('/brands/{id}/', $fullBrandData);
+     */
+    public function rawPut(string $endpoint, array $payload): array
+    {
+        return $this->raw('PUT', $endpoint, $payload);
+    }
+
+    /**
+     * Make a raw PATCH request
+     *
+     * Convenience method for PATCH requests (partial update)
+     *
+     * @param string $endpoint API endpoint path
+     * @param array $payload Request payload data
+     * @return array API response data
+     * @throws GateException
+     *
+     * @example
+     * $brand = $sdk->rawPatch('/brands/{id}/', ['name' => 'Updated Name']);
+     */
+    public function rawPatch(string $endpoint, array $payload): array
+    {
+        return $this->raw('PATCH', $endpoint, $payload);
+    }
+
+    /**
+     * Make a raw DELETE request
+     *
+     * Convenience method for DELETE requests
+     *
+     * @param string $endpoint API endpoint path
+     * @return array API response data
+     * @throws GateException
+     *
+     * @example
+     * $result = $sdk->rawDelete('/brands/{id}/');
+     */
+    public function rawDelete(string $endpoint): array
+    {
+        return $this->raw('DELETE', $endpoint);
+    }
+
     // ===== UTILITY METHODS =====
 
     /**

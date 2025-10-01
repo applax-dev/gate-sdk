@@ -2,6 +2,15 @@
 
 This guide will help you install and set up the Appla-X Gate SDK for PHP.
 
+## Quick Links
+
+- [Configuration Guide](configuration.md)
+- [Raw API Access](raw-api-access.md) ⭐ NEW - Access Brands, Charges, Taxes, Subscriptions
+- [Payment Methods](payment-methods.md)
+- [Webhooks](webhooks.md)
+
+---
+
 ## Requirements
 
 - **PHP**: 7.4 or higher
@@ -366,10 +375,11 @@ If you encounter issues:
 
 After installation:
 
-1. [Configure the SDK](CONFIGURATION.md) for your environment
-2. Learn about [Payment Methods](PAYMENT_METHODS.md)
-3. Set up [Webhooks](WEBHOOKS.md) for payment notifications
-4. Review security best practices in the main documentation
+1. [Configure the SDK](configuration.md) for your environment
+2. **NEW:** [Use Raw API Access](raw-api-access.md) to access Brands, Charges, Taxes, Subscriptions
+3. Learn about [Payment Methods](payment-methods.md)
+4. Set up [Webhooks](webhooks.md) for payment notifications
+5. Review security best practices in the main documentation
 
 ## Security Note
 

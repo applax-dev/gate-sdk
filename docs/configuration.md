@@ -2,6 +2,15 @@
 
 This guide covers all configuration options available in the Appla-X Gate SDK.
 
+## Quick Links
+
+- [Installation Guide](installation.md)
+- [Raw API Access](raw-api-access.md) ⭐ NEW - Access Brands, Charges, Taxes, Subscriptions
+- [Payment Methods](payment-methods.md)
+- [Webhooks](webhooks.md)
+
+---
+
 ## Quick Start
 
 ### Basic Configuration
