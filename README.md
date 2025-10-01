@@ -33,6 +33,29 @@ Install via Composer:
 composer require applax-dev/gate-sdk
 ```
 
+## 🔄 Updating
+
+To update to the latest version:
+
+```bash
+# Update to latest version
+composer update applax-dev/gate-sdk
+
+# Or update with all dependencies
+composer update
+
+# Update to specific version
+composer require applax-dev/gate-sdk:^1.2
+
+# Check current version
+composer show applax-dev/gate-sdk
+```
+
+**After updating:**
+- Review the [CHANGELOG.md](CHANGELOG.md) for breaking changes
+- Test in sandbox environment before production
+- Update your code if using deprecated features
+
 ## 🚀 Quick Start
 
 ### Basic Setup
