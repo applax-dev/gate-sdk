@@ -1,3 +1,7 @@
+<div align="center">
+  <img src="https://media.appla-x.com/img/applax.png" alt="Applax Logo" width="300"/>
+</div>
+
 # Documentation Updates Summary
 
 This document summarizes all documentation changes made to integrate the new Raw API Access feature across the entire SDK documentation.

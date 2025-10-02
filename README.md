@@ -1,3 +1,7 @@
+<div align="center">
+  <img src="https://media.appla-x.com/img/applax.png" alt="Applax Logo" width="300"/>
+</div>
+
 # Appla-X Gate SDK for PHP / LARAVEL 11+
 
 [![Latest Version](https://img.shields.io/packagist/v/applax-dev/gate-sdk.svg)](https://packagist.org/packages/applax-dev/gate-sdk)

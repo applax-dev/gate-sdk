@@ -1,3 +1,7 @@
+<div align="center">
+  <img src="https://media.appla-x.com/img/applax.png" alt="Applax Logo" width="300"/>
+</div>
+
 # Raw API Access - Complete Implementation Summary
 
 ## 🎉 Overview

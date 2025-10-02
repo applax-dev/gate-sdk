@@ -1,3 +1,7 @@
+<div align="center">
+  <img src="https://media.appla-x.com/img/applax.png" alt="Applax Logo" width="300"/>
+</div>
+
 # Raw API Access Guide
 
 This guide explains how to use the raw API access methods to interact with any Appla-X Gate API endpoint, including those without dedicated SDK methods.

@@ -1,3 +1,7 @@
+<div align="center">
+  <img src="https://media.appla-x.com/img/applax.png" alt="Applax Logo" width="300"/>
+</div>
+
 # Configuration Guide
 
 This guide covers all configuration options available in the Appla-X Gate SDK.

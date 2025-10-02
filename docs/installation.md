@@ -1,3 +1,7 @@
+<div align="center">
+  <img src="https://media.appla-x.com/img/applax.png" alt="Applax Logo" width="300"/>
+</div>
+
 # Installation Guide
 
 This guide will help you install and set up the Appla-X Gate SDK for PHP.

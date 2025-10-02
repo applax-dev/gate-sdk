@@ -1,3 +1,7 @@
+<div align="center">
+  <img src="https://media.appla-x.com/img/applax.png" alt="Applax Logo" width="300"/>
+</div>
+
 # Webhooks Guide
 
 This guide covers webhook implementation, security, and best practices for the Appla-X Gate SDK.

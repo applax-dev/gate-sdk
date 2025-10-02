@@ -1,3 +1,7 @@
+<div align="center">
+  <img src="https://media.appla-x.com/img/applax.png" alt="Applax Logo" width="300"/>
+</div>
+
 # Contributing to Appla-X Gate SDK
 
 Thank you for your interest in contributing to the Appla-X Gate SDK! This document provides guidelines and information for contributors.
